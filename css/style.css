@@ -1,0 +1,315 @@
+/* style for nav */
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+#navbar {
+    background-color: #e6593a;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+    z-index: 1;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#navbar a:hover {
+    background-color: white;
+    color: #e6593a;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* my style  css */
+
+.main {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.footer {
+    background-color: #e6593a;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.main {
+    font-size: 20px;
+    padding-top: 100px;
+}
+
+.container-lg h1 {
+    font-weight: 600;
+}
+
+/* style for table ctrl + / */
+
+.table-wrapper {
+    width: 100%;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+table thead {
+    background-color: #e6593a;
+    color: white;
+}
+
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+}
+
+.table-title h2 {
+    margin: 6px 0 0;
+    font-size: 22px;
+}
+
+.table-title .add-new {
+    float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+}
+
+.table-title .add-new i {
+    margin-right: 4px;
+}
+
+table.table {
+    table-layout: auto;
+}
+
+table.table tr th,
+table.table tr td {
+    border-color: #e9e9e9;
+}
+
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+table.table th:last-child {
+    width: 140px;
+}
+
+table.table th:first-child {
+    width: 50px;
+}
+
+table.table th:nth-child(2) {
+    width: 250px;
+}
+
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}
+
+table.table td a.add-member {
+    color: #27C46B;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+}
+
+table.table td a.delete {
+    color: #e6593a;
+}
+
+table.table td i {
+    font-size: 27px;
+}
+
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}
+
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+table.table .form-control.error {
+    border-color: #f50000;
+}
+
+table.table td .add {
+    display: none;
+}
+
+
+/* style create employee */
+
+
+/* style css for create employee  */
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    /* margin: 5px 0 22px 0; */
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* ẩn thông báo thành công */
+
+#alert-success {
+    display: none;
+    position: fixed;
+}
+
+#alert-warning {
+    display: none;
+    position: fixed;
+    right: 50;
+    height: auto;
+    width: auto;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #e6593a;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #e6593a;
+    color: white;
+    border-radius: 5px;
+}
+
+.modal-footer {
+    justify-content: space-between;
+}
+
+
+/* 
+#account-list-table {
+    width: 200px;
+    height: 700px;
+} */
+
+#account-list {
+    width: 75%;
+    border-radius: 2px;
+    border: 1px solid grey;
+    overflow: scroll;
+    height: 300px;
+}
+
+
+/* #account-list .table.tbody {} */
+
+#add-account-to-department .modal-dialog {
+    max-width: 75%;
+
+}
+
+#function-buttons {
+    height: 50px;
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#bt-1 {
+    flex: 1;
+}
+
+#bt-2 {
+    flex: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#bt-3 {
+    flex: 1;
+}
+
+#search-by-name, #search-account-by-name {
+    width: 90%;
+    border-radius: 15px;
+}
+
+#filter {
+    color: white;
+    background-color: #e6593a;
+    border: none;
+    cursor: pointer;
+}
+
+#filter:hover {
+    opacity: 70%;
+}
+
+.fix-search {
+    color: white;
+    background-color: #e6593a;
+    border-radius: 5px;
+}
+
+.fix-search:hover {
+    opacity: 70%;
+}
+.active-header{
+    background-color: white!important;
+    color: #e6593a!important;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
