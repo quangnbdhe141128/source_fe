@@ -83,21 +83,6 @@ function showAlertSuccess() {
     });
 }
 
-// param để truyền vào department api(search, filter, pageable)
-let getApiParam = {
-    pageNumber: 0,
-    search: "",
-    minDate: "",
-    maxDate: "",
-    type: "",
-    getParamString() {
-        return "?pageNumber=" + this.pageNumber +
-            "&search=" + this.search +
-            "&minCreatedDate=" + this.minDate +
-            "&maxCreatedDate=" + this.maxDate +
-            "&type=" + this.type;
-    }
-};
 
 // Phân trang
 function pagination(result) {
@@ -139,6 +124,23 @@ function resetDepartmentModal() {
     document.getElementById("department-type-select").value = "";
 }
 
+// param để truyền vào department api(search, filter, pageable)
+let getApiParam = {
+    pageNumber: 0,
+    search: "",
+    minDate: "",
+    maxDate: "",
+    type: "",
+    size:5,
+    getParamString() {
+        return "?pageNumber=" + this.pageNumber +
+            "&size=" + this.size +
+            "&search=" + this.search +
+            "&minCreatedDate=" + this.minDate +
+            "&maxCreatedDate=" + this.maxDate +
+            "&type=" + this.type;
+    }
+};
 
 // khởi tạo danh sách department
 function initDepartmentTable(param) {
@@ -146,6 +148,7 @@ function initDepartmentTable(param) {
     $('tbody').empty();
     $.ajax({
         url: apiDepartmentURL + param,
+        //  + "?size=5",
         type: 'GET',
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
