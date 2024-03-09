@@ -3,7 +3,11 @@
 //     var isRememberMe = storage.getRememberMe();
 //     document.getElementById("rememberMe").checked = isRememberMe;
 // });
-
+// function showAlertSuccess() {
+//     $("#alert-success").fadeTo(5000, 200).slideUp(2000, function () {
+//         $("#alert-success").slideUp(5000);
+//     });
+// }
 function login() {
     // Get username & password
     var username = document.getElementById("username").value;
@@ -52,7 +56,6 @@ function login() {
             storage.setItem("USERNAME", username);
             storage.setItem("PASSWORD", password);
             storage.setItem("ROLE", data.role);
-
             // redirect to home page
             // https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
             window.location.replace("/");
