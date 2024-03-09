@@ -147,6 +147,10 @@ function initDepartmentTable(param) {
     $.ajax({
         url: apiDepartmentURL + param,
         type: 'GET',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             console.log(result);
             pagination(result);
@@ -178,10 +182,10 @@ function initAccountTableToAddToDepartment() {
         url: apiAccountURL + "/list",
         type: 'GET',
         async: false,
-        // beforeSend: function (xhr) {
-        //     xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
-        // }
-        // ,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             result.content.forEach(function (item) {
                 $("#account-list-table tbody").append(
@@ -254,6 +258,10 @@ function initDapartmentTypeList() {
     $.ajax({
         url: apiDepartmentURL + "/types",
         type: 'GET',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             result.forEach(function (item) {
                 console.log(item);
@@ -303,6 +311,10 @@ function createNewDepartment() {
         data: JSON.stringify(department), // body
         contentType: "application/json",
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) { 
             isOk = true;
         },
@@ -336,6 +348,10 @@ function getDepartmentById(id){
         url: apiDepartmentURL + "/" + id,
         type: 'GET',
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             //fill data
             document.getElementById("department-id").value = result.id;
@@ -368,6 +384,10 @@ function opendUpdateDepartmentModal(id) {
         url: apiDepartmentURL + "/" + id,
         type: 'GET',
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             departmentTemp = result;
             //fill data
@@ -408,6 +428,10 @@ function opendAddAccountToDepartmentModal(id) {
         url: apiDepartmentURL + "/" + id,
         type: 'GET',
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             departmentTemp = result;
             //fill data
@@ -473,6 +497,10 @@ function updateDepartment(departmentID) {
         data: JSON.stringify(departmentTemp), // body
         contentType: "application/json",
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             isOk = true;
         },
@@ -507,6 +535,10 @@ function deleteDepartment() {
         url: apiDepartmentURL + "/" + id,
         type: 'DELETE',
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
         }
     });
@@ -531,6 +563,10 @@ function deleteDepartments() {
         data: data,
         contentType: "application/json",
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             isOk = true;
         },

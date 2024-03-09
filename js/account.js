@@ -89,6 +89,10 @@ function deleteAccount() {
         url: apiAccountURL + "/" + id,
         type: 'DELETE',
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
         }
     });
@@ -111,6 +115,10 @@ function deleteAccounts() {
         data: data, // body
         contentType: "application/json",
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             isOk = true;
         },
@@ -159,6 +167,10 @@ function initAccountRoleList() {
     $.ajax({
         url: apiAccountURL + "/roles",
         type: 'GET',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             console.log(result);
             result.forEach(function (item) {
@@ -179,6 +191,10 @@ function initAccountDepartmentList() {
         url: apiDepartmentURL + "/lists",
         type: 'GET',
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             result.forEach(function (item) {
                 $('#account-department-filter').append(
@@ -214,6 +230,10 @@ function initDapartmentList() {
     $.ajax({
         url: apiDepartmentURL,
         type: 'GET',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             var list = result.content;
             list.forEach(function (item) {
@@ -232,6 +252,10 @@ function initAccountTable(param) {
     $.ajax({
         url: apiAccountURL + param,
         type: 'GET',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             paginationAccount(result);
             var list = result.content;
@@ -310,6 +334,10 @@ function createNewAccount() {
             data: JSON.stringify(account), // body
             contentType: "application/json",
             async: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+            }
+            ,
             success: function (result) {
                 isCheck = true;
             },
@@ -361,6 +389,10 @@ function opendUpdateAccountModal(accountID) {
         url: apiAccountURL + "/" + accountID,
         type: 'GET',
         async: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             accountTemp = result;
             console.log(accountTemp);
@@ -414,6 +446,10 @@ function updateAccount(accountID) {
         data: JSON.stringify(accountTemp), // body
         contentType: "application/json",
         async: false,   
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
+        }
+        ,
         success: function (result) {
             isOk = true;
 

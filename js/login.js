@@ -8,6 +8,11 @@
 //         $("#alert-success").slideUp(5000);
 //     });
 // }
+function showAlertError() {
+    $("#alert-warning").fadeTo(5000, 100).slideUp(2000, function () {
+        $("#alert-warning").slideUp(5000);
+    });
+}
 function login() {
     // Get username & password
     var username = document.getElementById("username").value;
@@ -28,7 +33,8 @@ function login() {
     // validate username 6 -> 30 characters
     if (username.length < 6 || username.length > 20 || password.length < 6 || password.length > 8) {
         // show error message
-        showNameErrorMessage("Login fail!");
+        // showNameErrorMessage("Login fail!");
+        showAlertError()
         return;
     }
 
@@ -61,8 +67,10 @@ function login() {
             window.location.replace("/");
         },
         error(jqXHR, textStatus, errorThrown) {
+            
             if (jqXHR.status == 401) {
-                showNameErrorMessage("Login fail!");
+                // showNameErrorMessage("Login fail!");
+                showAlertError()
             } else {
                 console.log(jqXHR);
                 console.log(textStatus);

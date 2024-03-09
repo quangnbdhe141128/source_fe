@@ -1,4 +1,5 @@
 function logout(){
-    storage.removeItem("ID");
+    localStorage.clear();
+    sessionStorage.clear();
     window.open("http://127.0.0.1:5500/templates/login.html");
 }
