@@ -54,7 +54,6 @@ function login() {
             // save remember me
             var isRememberMe = document.getElementById("rememberMe").checked;
             storage.saveRememberMe(isRememberMe);
-
             // save data to storage
             // https://www.w3schools.com/html/html5_webstorage.asp
             storage.setItem("ID", data.id);
@@ -65,6 +64,7 @@ function login() {
             // redirect to home page
             // https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
             window.location.replace("/");
+           
         },
         error(jqXHR, textStatus, errorThrown) {
             
@@ -77,6 +77,7 @@ function login() {
                 console.log(errorThrown);
             }
         }
+         
     });
 }
 

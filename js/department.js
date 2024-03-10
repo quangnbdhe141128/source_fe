@@ -5,6 +5,7 @@ var apiAccountURL = "http://localhost:8080/api/v1/accounts";
 
 //
 function isLogin(){
+    // document.getElementById("user-full-name").innerHTML = storage.getItem("FULL_NAME")
     if(storage.getItem("ID")){
         return true;
     }
@@ -33,7 +34,7 @@ function viewHome() {
 // đến trang quản lý department
 function viewDeparment(element) {
     $(".main").load("/department/department.html", function (){
-        
+        // document.getElementById("user-full-name").innerHTML = storage.getItem("FULL_NAME")
         initDepartmentTable("");
         initDapartmentTypeList();
         // showAlertWarning();
@@ -131,10 +132,8 @@ let getApiParam = {
     minDate: "",
     maxDate: "",
     type: "",
-    size:5,
     getParamString() {
-        return "?pageNumber=" + this.pageNumber +
-            "&size=" + this.size +
+        return  "&pageNumber=" + this.pageNumber +
             "&search=" + this.search +
             "&minCreatedDate=" + this.minDate +
             "&maxCreatedDate=" + this.maxDate +
@@ -147,8 +146,8 @@ function initDepartmentTable(param) {
    // alert(123);
     $('tbody').empty();
     $.ajax({
-        url: apiDepartmentURL + param,
-        //  + "?size=5",
+        url: apiDepartmentURL
+          +"?size=5" + param,
         type: 'GET',
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
